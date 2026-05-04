@@ -14,6 +14,7 @@ const projectTypes = [
   'Large Format Graphics — Other',
 ]
 
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xgodaplq'
 const MAX_FILES = 5
 const MAX_SIZE_MB = 25
 const ACCEPTED = '.pdf,.ai,.eps,.svg,.png,.jpg,.jpeg,.tiff,.zip,.psd'
@@ -77,27 +78,27 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setLoading(true)
-
-    // For Formspree with file uploads, use FormData
-    // Replace 'YOUR_FORMSPREE_ID' with your actual Formspree endpoint ID
-    const data = new FormData()
-    Object.entries(form).forEach(([key, val]) => data.append(key, val))
-    files.forEach((file) => data.append('attachments', file))
+    setFileError('')
 
     try {
-      // Uncomment below and replace YOUR_FORMSPREE_ID to activate:
-      // const res = await fetch('https://formspree.io/f/YOUR_FORMSPREE_ID', {
-      //   method: 'POST',
-      //   body: data,
-      //   headers: { Accept: 'application/json' },
-      // })
-      // if (!res.ok) throw new Error('Submission failed')
+      const data = new FormData()
+      Object.entries(form).forEach(([key, val]) => data.append(key, val))
+      files.forEach((file) => data.append('attachments', file))
 
-      // Simulated delay for now — remove when Formspree is connected
-      await new Promise(r => setTimeout(r, 1200))
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' },
+      })
+
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => ({}))
+        throw new Error(errorData.error || 'Submission failed')
+      }
+
       setSubmitted(true)
-    } catch {
-      setFileError('Something went wrong. Please email us directly at 301graphic@gmail.com')
+    } catch (err) {
+      setFileError('Something went wrong. Please email us directly at 301graphic@gmail.com or call (815) 325-5363.')
     } finally {
       setLoading(false)
     }
