@@ -29,33 +29,33 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Top credential bar */}
-      <div className="hidden md:block bg-yellow-400 py-1.5">
+      {/* Top credential bar — clean badge display per 3M brand guidelines */}
+      <div className="hidden md:block bg-zinc-950 border-b border-yellow-400/20 py-2">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          <div className="flex items-center gap-6">
-            {/* 3M Fleet Badge */}
-            <div className="relative h-7 w-28">
-              <Image
-                src="/badge-fleet.png"
-                alt="3M Fleet Graphics Certified"
-                fill
-                className="object-contain object-left"
-              />
+          {/* 3M badges — official icons + readable text */}
+          <div className="flex items-center gap-5">
+            <div className="flex items-center gap-2.5">
+              <div className="relative h-7 w-7 shrink-0">
+                <Image src="/badge-3m-preferred.png" alt="3M Preferred Installer" fill className="object-contain" />
+              </div>
+              <span className="text-white/90 text-[11px] tracking-wider uppercase font-semibold leading-tight">
+                3M Preferred<br/>Installer
+              </span>
             </div>
-            {/* 3M Preferred Installer Badge */}
-            <div className="relative h-6 w-28">
-              <Image
-                src="/badge-preferred.png"
-                alt="3M Preferred Installer"
-                fill
-                className="object-contain object-left"
-              />
+            <div className="w-px h-9 bg-white/15" />
+            <div className="flex items-center gap-2.5">
+              <div className="relative h-7 w-7 shrink-0">
+                <Image src="/badge-3m-fleet.png" alt="3M Fleet Graphics Certified" fill className="object-contain" />
+              </div>
+              <span className="text-white/90 text-[11px] tracking-wider uppercase font-semibold leading-tight">
+                3M Fleet Graphics<br/>Certified
+              </span>
             </div>
           </div>
-          <div className="flex items-center gap-6 text-black/60 text-xs font-medium">
-            <span>Licensed LLC · Fully Insured · Cobb County, GA</span>
-            <a href="tel:8153255363" className="font-bold text-black hover:underline flex items-center gap-1">
-              <Phone size={11} /> (815) 325-5363
+          <div className="flex items-center gap-5 text-white/60 text-xs font-medium">
+            <span className="hidden lg:inline">Licensed LLC · Fully Insured · Cobb County, GA</span>
+            <a href="tel:8153255363" className="text-yellow-400 hover:text-yellow-300 font-bold flex items-center gap-1.5 transition-colors">
+              <Phone size={12} /> (815) 325-5363
             </a>
           </div>
         </div>
@@ -90,7 +90,7 @@ export default function Navbar() {
                 {label}
               </Link>
             ))}
-            <Link href="/contact" className="btn-primary text-xs py-2.5 px-5">Free Quote</Link>
+            <Link href="/contact" className="btn-primary text-xs py-2.5 px-5">Get Quote</Link>
           </div>
 
           {/* Mobile toggle */}
@@ -114,12 +114,19 @@ export default function Navbar() {
               <Image src="/logo.png" alt="301 Graphics" fill className="object-contain" />
             </div>
             {/* Mobile badges */}
-            <div className="flex items-center gap-6 bg-yellow-400 px-6 py-3 mb-2">
-              <div className="relative h-7 w-24">
-                <Image src="/badge-fleet.png" alt="3M Fleet Certified" fill className="object-contain" />
+            <div className="flex items-center gap-5 bg-zinc-950 border border-yellow-400/30 px-5 py-3 mb-2">
+              <div className="flex items-center gap-2">
+                <div className="relative h-7 w-7">
+                  <Image src="/badge-3m-preferred.png" alt="3M Preferred Installer" fill className="object-contain" />
+                </div>
+                <span className="text-white text-[10px] tracking-wider uppercase font-semibold leading-tight">3M Preferred<br/>Installer</span>
               </div>
-              <div className="relative h-6 w-24">
-                <Image src="/badge-preferred.png" alt="3M Preferred Installer" fill className="object-contain" />
+              <div className="w-px h-9 bg-white/15" />
+              <div className="flex items-center gap-2">
+                <div className="relative h-7 w-7">
+                  <Image src="/badge-3m-fleet.png" alt="3M Fleet Graphics Certified" fill className="object-contain" />
+                </div>
+                <span className="text-white text-[10px] tracking-wider uppercase font-semibold leading-tight">Fleet<br/>Certified</span>
               </div>
             </div>
             {links.map(({ href, label }, i) => (
@@ -135,7 +142,7 @@ export default function Navbar() {
             ))}
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: links.length * 0.07 }}
               className="flex flex-col items-center gap-4 mt-2">
-              <Link href="/contact" className="btn-primary">Free Quote</Link>
+              <Link href="/contact" className="btn-primary">Get a Free Quote</Link>
               <a href="tel:8153255363" className="text-white/50 text-sm hover:text-yellow-400 transition-colors flex items-center gap-2">
                 <Phone size={14} /> (815) 325-5363
               </a>
@@ -144,7 +151,7 @@ export default function Navbar() {
         )}
       </AnimatePresence>
 
-      {/* Mobile floating call button */}
+      {/* Mobile floating call/quote button — visible on every page */}
       <motion.a href="tel:8153255363" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 2 }}
         className="md:hidden fixed bottom-6 right-6 z-50 bg-yellow-400 text-black px-4 py-3 shadow-2xl flex items-center gap-2 font-bold text-xs tracking-wider uppercase"
         aria-label="Call 301 Graphics">
