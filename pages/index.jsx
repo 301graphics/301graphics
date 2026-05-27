@@ -51,7 +51,7 @@ export default function Home() {
             </h1>
 
             <p className="text-white/70 text-lg md:text-xl max-w-xl mb-10 leading-relaxed">
-              Install-only specialist. 3M Preferred Installer with 800+ installs across Atlanta and beyond.
+              Install-only specialist. 3M Preferred Installer with 1000+ installs across Atlanta and beyond.
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
@@ -91,7 +91,7 @@ export default function Home() {
             </div>
           </AnimateIn>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5">
+          <div className="grid md:grid-cols-2 gap-px bg-white/5">
             {SERVICES.map((s, i) => (
               <AnimateIn key={s.title} delay={i * 0.05}>
                 <Link href={s.href} className="group block bg-zinc-950 p-8 hover:bg-zinc-900 transition-colors h-full">
