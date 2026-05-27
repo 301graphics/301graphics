@@ -41,7 +41,7 @@ export default function About() {
   return (
     <Layout
       title="About 301 Graphics | 3M Fleet Certified Vinyl Installer — Cobb County, GA"
-      description="301 Graphics is a licensed LLC and 3M Fleet Certified commercial vinyl installation company based in Cobb County, GA. 600+ installs, Avery trained, fully insured. Serving Atlanta, Southeast, and nationwide."
+      description="301 Graphics is a licensed LLC and 3M Fleet Certified commercial vinyl installation company based in Cobb County, GA. 1000+ installs, Avery trained, fully insured. Serving Atlanta, Southeast, and nationwide."
     >
       {/* Hero */}
       <section className="pt-40 pb-24 px-6 bg-black">
@@ -52,7 +52,7 @@ export default function About() {
               BUILT ON<br />
               <span className="text-yellow-400">PRECISION.</span><br />
               PROVEN BY<br />
-              600+ INSTALLS.
+              1000+ INSTALLS.
             </h1>
             <p className="text-white/50 text-lg max-w-xl leading-relaxed">
               A 3M Fleet Certified, fully insured, licensed LLC based in Cobb County, GA —
@@ -75,7 +75,7 @@ export default function About() {
                 </p>
                 <p>
                   Founded in December 2025 and based in Cobb County, GA, we came into this industry
-                  with over 600 commercial installs already behind us — a career built on doing
+                  with over 1000 commercial installs already behind us — a career built on doing
                   high-quality work across every commercial vinyl application imaginable.
                   Fleet graphics, vehicle wraps, storefronts, wall murals, trade show installs —
                   we have done it all, and we have done it at scale.
@@ -102,7 +102,7 @@ export default function About() {
             <AnimateIn delay={0.2}>
               <div className="grid grid-cols-2 gap-px bg-white/10 mb-8">
                 {[
-                  { val: '600+', label: 'Installs Completed', sub: 'Career total' },
+                  { val: '1000+', label: 'Installs Completed', sub: 'Career total' },
                   { val: '3M', label: 'Fleet Certified', sub: 'Certified installer' },
                   { val: 'LLC', label: 'Licensed Business', sub: 'Georgia registered' },
                   { val: 'SE+', label: 'Service Coverage', sub: 'Southeast & nationwide' },
