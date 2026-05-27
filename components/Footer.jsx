@@ -23,15 +23,21 @@ export default function Footer() {
               Licensed LLC · Fully Insured.
             </p>
 
-            {/* 3M Badges - per guidelines: logo above, not attached to badges */}
+            {/* 3M Badges - using new official 3M certified badges */}
             <div className="flex flex-col gap-3 mb-6 p-4 bg-zinc-950 border border-white/10">
               <div className="text-[9px] tracking-[0.2em] uppercase text-white/30 font-semibold">Certifications</div>
-              <div className="flex items-center gap-6 flex-wrap">
-                <div className="relative h-8 w-32">
-                  <Image src="/badge-preferred-white.png" alt="3M Preferred Installer" fill className="object-contain object-left" />
+              <div className="flex items-center gap-5 flex-wrap">
+                <div className="flex items-center gap-2">
+                  <div className="relative h-10 w-10 shrink-0">
+                    <Image src="/badge-3m-preferred.png" alt="3M Preferred Installer" fill className="object-contain" />
+                  </div>
+                  <span className="text-white/70 text-[10px] font-semibold tracking-wide leading-tight">3M Preferred<br/>Installer</span>
                 </div>
-                <div className="relative h-9 w-32">
-                  <Image src="/badge-fleet.png" alt="3M Fleet Graphics Certified" fill className="object-contain object-left" />
+                <div className="flex items-center gap-2">
+                  <div className="relative h-10 w-10 shrink-0">
+                    <Image src="/badge-3m-fleet.png" alt="3M Fleet Graphics Certified" fill className="object-contain" />
+                  </div>
+                  <span className="text-white/70 text-[10px] font-semibold tracking-wide leading-tight">3M Fleet Graphics<br/>Certified</span>
                 </div>
               </div>
             </div>
