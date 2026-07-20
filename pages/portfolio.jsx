@@ -11,6 +11,13 @@ import AnimateIn from '../components/AnimateIn'
 // No client names, no specific descriptions visible to users.
 const PORTFOLIO = [
   // ── VEHICLES (anything that drives) ──
+  { src: 'awp-safety-truck-decals.jpg',     cat: 'Vehicles' },
+  { src: 'daves-killer-bread-box-truck.jpg', cat: 'Vehicles' },
+  { src: 'bronco-custom-stripes.jpg',       cat: 'Vehicles' },
+  { src: 'assured-comfort-van-wrap.jpg',    cat: 'Vehicles' },
+  { src: 'impact-fire-van-decals.jpg',      cat: 'Vehicles' },
+  { src: 'room-and-board-trailer-decals.jpg', cat: 'Vehicles' },
+  { src: 'groundworks-box-truck.jpg',       cat: 'Vehicles' },
   { src: 'full-vehicle-wrap-matte.jpg',     cat: 'Vehicles' },
   { src: 'sedan-fleet-wrap.jpg',            cat: 'Vehicles' },
   { src: 'catering-van-wrap.jpg',           cat: 'Vehicles' },
@@ -31,6 +38,12 @@ const PORTFOLIO = [
   { src: 'passenger-shuttle-wrap.jpg',      cat: 'Vehicles' },
 
   // ── WALLS / WINDOWS / FLOORS (anything stationary) ──
+  { src: 'taco-bell-storefront-graphics.jpg', cat: 'Walls / Windows / Floors' },
+  { src: 'taco-bell-interior-window-film.jpg', cat: 'Walls / Windows / Floors' },
+  { src: 'taco-bell-exterior-mural.jpg',    cat: 'Walls / Windows / Floors' },
+  { src: 'amphitheater-wall-wrap.jpg',      cat: 'Walls / Windows / Floors' },
+  { src: 'parking-garage-wayfinding.jpg',   cat: 'Walls / Windows / Floors' },
+  { src: 'office-art-panel-install.jpg',    cat: 'Walls / Windows / Floors' },
   { src: 'corporate-wall-graphics.jpg',     cat: 'Walls / Windows / Floors' },
   { src: 'robotics-wall-mural.jpg',         cat: 'Walls / Windows / Floors' },
   { src: 'hiram-hornets-mural.jpg',         cat: 'Walls / Windows / Floors' },
@@ -130,8 +143,8 @@ export default function Portfolio() {
             <Shield size={20} className="text-yellow-400/60 shrink-0 mt-1" />
             <p className="text-white/50 text-sm leading-relaxed">
               <span className="text-white/70 font-semibold">Installation Attribution Notice:</span>{' '}
-              All photographs displayed on this page represent installation work personally completed by Tony Nesser and/or 301 Graphics LLC.
-              Some graphics shown were designed and produced by third-party print and design partners; 301 Graphics is credited solely as the installation provider on those projects.
+              All photographs displayed on this page represent installation work personally completed by Tony Nesser, 301 Graphics LLC, or established 3M-certified partners.
+              Graphics shown were not produced in-house — they were designed and produced by third-party print and design partners; 301 Graphics is credited solely as the installation provider on those projects.
               Vehicles, properties, and graphics shown remain the intellectual property of their respective owners.
               Photos are used for portfolio documentation only.
             </p>
