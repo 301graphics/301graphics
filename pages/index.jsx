@@ -2,32 +2,54 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { ArrowRight, Phone, Shield, Award, MapPin, Truck, CheckCircle2, Star } from 'lucide-react'
+import { ArrowRight, Phone, Shield, Award, MapPin, Truck, Car, Sparkles, CheckCircle2 } from 'lucide-react'
 import Layout from '../components/Layout'
 import AnimateIn from '../components/AnimateIn'
 
 const SERVICES = [
   { title: 'Vehicle Wraps', desc: 'Cars, trucks, vans, SUVs. Full, partial, color change, matte.', href: '/services#vehicle-wraps' },
   { title: 'Fleet Graphics', desc: 'Multi-vehicle rebrands and decal programs at scale.', href: '/fleet' },
+  { title: 'Color Change Wraps', desc: 'Gloss, matte, satin, and color-shift transformations for your personal ride.', href: '/services#color-change' },
+  { title: 'PPF & Window Tint', desc: 'Self-healing paint protection film and ceramic tint. Ceramic coating available.', href: '/services#ppf-tint' },
   { title: 'Wall & Window Graphics', desc: 'Interior, exterior, perforated, frosted, large-format murals.', href: '/services#wall-window' },
   { title: 'Trade Show & Events', desc: 'On-site booth, floor, and display installs in tight windows.', href: '/services#trade-show' },
 ]
 
 const PORTFOLIO_PREVIEW = [
-  'box-truck-fleet-wrap.jpg',
-  'catering-van-wrap.jpg',
-  'full-vehicle-wrap-matte.jpg',
-  'fleet-truck-decals.jpg',
-  'corporate-wall-graphics.jpg',
-  'storefront-window-wrap.jpg',
+  'taco-bell-storefront-graphics.jpg',
+  'daves-killer-bread-box-truck.jpg',
+  'bronco-custom-stripes.jpg',
+  'awp-safety-truck-decals.jpg',
+  'amphitheater-wall-wrap.jpg',
+  'assured-comfort-van-wrap.jpg',
+]
+
+const FINISHES = [
+  ['Gloss Black', 'linear-gradient(145deg,#2b2b2e,#000 60%,#3a3a3e)'],
+  ['Satin Dark Gray', 'linear-gradient(145deg,#3a3a3c,#151517)'],
+  ['Gloss White', 'linear-gradient(145deg,#f5f5f2,#c9c9c4 65%,#fdfdfb)'],
+  ['Matte Military', 'linear-gradient(145deg,#40503a,#1c2418 60%,#556a4c)'],
+  ['Gloss Carmine', 'linear-gradient(145deg,#8a1013,#3d0507 60%,#b3181c)'],
+  ['Color Shift', 'linear-gradient(120deg,#3f2a63,#1c4b6e 45%,#2c7a5e 75%,#3f2a63)'],
+  ['Satin Silver', 'linear-gradient(145deg,#c8cdd4,#7d838d 55%,#e6eaef)'],
+  ['Midnight Navy', 'linear-gradient(145deg,#1d2c4f,#0a1123 60%,#2c4373)'],
+  ['Burnt Orange', 'linear-gradient(145deg,#f26d21,#a13c05 60%,#ff8a45)'],
+  ['Emerald Satin', 'linear-gradient(145deg,#0e3a2c,#04140e 60%,#175843)'],
+]
+
+const FAQ = [
+  ['How much does a color change wrap cost?', 'It depends on vehicle size, finish, and complexity — gloss films run less than specialty color-shift. Send photos of your vehicle and we\'ll quote it same day.'],
+  ['Will a wrap damage my paint?', 'No — on healthy factory paint, vinyl protects the finish underneath. We inspect every vehicle before we start and flag any problem areas first.'],
+  ['How long does a wrap last?', 'Premium 3M and Avery films are rated for 5–7 years with proper care. Hand washing and garage keeping extend that.'],
+  ['Do you still do install-only work for print shops?', 'Absolutely — that\'s where we built our 1000+ install reputation. Print your graphics and our 3M-certified installers take it from there.'],
 ]
 
 export default function Home() {
   return (
     <Layout>
       <Head>
-        <title>301 Graphics — Commercial Vinyl Installation | Atlanta, GA</title>
-        <meta name="description" content="3M Preferred Installer. Vehicle wraps, fleet graphics, wall & window installs across Atlanta and nationwide. Fully insured. Get a quote." />
+        <title>301 Graphics — Vehicle Wraps, Fleet Graphics, PPF & Tint | Atlanta, GA</title>
+        <meta name="description" content="3M Preferred Installer. Commercial fleet graphics, color change wraps, paint protection film & tint across Atlanta and nationwide. Fully insured. Get a quote." />
       </Head>
 
       {/* ── HERO ─────────────────────────────────────────────────────── */}
@@ -41,7 +63,7 @@ export default function Home() {
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <div className="flex items-center gap-2 mb-6">
               <div className="h-px w-12 bg-yellow-400" />
-              <span className="text-yellow-400 text-xs tracking-[0.3em] uppercase font-semibold">Commercial Vinyl Installation</span>
+              <span className="text-yellow-400 text-xs tracking-[0.3em] uppercase font-semibold">Wraps · Fleet · PPF · Tint</span>
             </div>
 
             <h1 className="font-display text-5xl md:text-7xl lg:text-8xl text-white leading-[0.95] mb-6 tracking-tight">
@@ -51,12 +73,16 @@ export default function Home() {
             </h1>
 
             <p className="text-white/70 text-lg md:text-xl max-w-xl mb-10 leading-relaxed">
-              Install-only specialist. 3M Preferred Installer with 1000+ installs across Atlanta and beyond.
+              3M Preferred Installer with 1000+ installs. From 200-truck fleet rollouts
+              to one-of-one color changes — every panel gets the same obsessive precision.
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
               <Link href="/contact" className="btn-primary text-sm">
                 Get a Quote <ArrowRight size={16} className="ml-2 inline" />
+              </Link>
+              <Link href="/services#color-change" className="btn-outline text-sm">
+                Color Change & PPF
               </Link>
               <a href="tel:8153255363" className="text-white/90 hover:text-yellow-400 transition-colors flex items-center gap-2 text-sm font-semibold tracking-wider uppercase">
                 <Phone size={16} /> (815) 325-5363
@@ -76,14 +102,73 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── SERVICES ────────────────────────────────────────────────── */}
+      {/* ── TWO MARKETS — commercial built, enthusiast approved ───────── */}
       <section className="bg-zinc-950 py-24 border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6">
+          <AnimateIn>
+            <div className="mb-12">
+              <div className="text-yellow-400 text-xs tracking-[0.3em] uppercase font-semibold mb-3">Who We Serve</div>
+              <h2 className="font-display text-4xl md:text-5xl text-white tracking-tight">Commercial Built. Enthusiast Approved.</h2>
+            </div>
+          </AnimateIn>
+
+          <div className="grid md:grid-cols-2 gap-px bg-white/5">
+            <AnimateIn>
+              <div className="bg-zinc-950 p-10 h-full">
+                <Truck size={28} className="text-yellow-400 mb-5" />
+                <h3 className="font-display text-3xl text-white mb-4 tracking-wide">FOR YOUR BUSINESS</h3>
+                <p className="text-white/60 text-sm leading-relaxed mb-6">
+                  Your vehicles are billboards that clock in every morning. Fleet rebrands,
+                  box trucks, storefronts, and trade shows — installed on your schedule with
+                  full photo documentation, so nothing sits idle longer than it has to.
+                </p>
+                <ul className="space-y-2.5 mb-8">
+                  {['Fleet graphics — 2 to 200+ vehicles', 'Install-only partner for print shops', 'Wall, window & event graphics'].map(f => (
+                    <li key={f} className="flex items-center gap-3">
+                      <CheckCircle2 size={14} className="text-yellow-400 shrink-0" />
+                      <span className="text-white/70 text-sm">{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link href="/fleet" className="text-yellow-400 text-xs tracking-wider uppercase font-semibold hover:text-yellow-300 flex items-center gap-2">
+                  Fleet & Commercial <ArrowRight size={12} />
+                </Link>
+              </div>
+            </AnimateIn>
+            <AnimateIn delay={0.08}>
+              <div className="bg-zinc-950 p-10 h-full">
+                <Car size={28} className="text-yellow-400 mb-5" />
+                <h3 className="font-display text-3xl text-white mb-4 tracking-wide">FOR YOUR RIDE</h3>
+                <p className="text-white/60 text-sm leading-relaxed mb-6">
+                  You&apos;ve stared at renders long enough. Color changes, chrome deletes,
+                  paint protection film, and ceramic tint — installed with the same 3M-certified
+                  hands that fleet brands trust, minus the bubbles and lifted edges.
+                </p>
+                <ul className="space-y-2.5 mb-8">
+                  {['Full & partial color change wraps', 'Self-healing PPF & track packs', 'Ceramic window tint & coating'].map(f => (
+                    <li key={f} className="flex items-center gap-3">
+                      <CheckCircle2 size={14} className="text-yellow-400 shrink-0" />
+                      <span className="text-white/70 text-sm">{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link href="/services#color-change" className="text-yellow-400 text-xs tracking-wider uppercase font-semibold hover:text-yellow-300 flex items-center gap-2">
+                  Color Change & PPF <ArrowRight size={12} />
+                </Link>
+              </div>
+            </AnimateIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SERVICES ────────────────────────────────────────────────── */}
+      <section className="bg-black py-24 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6">
           <AnimateIn>
             <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
               <div>
                 <div className="text-yellow-400 text-xs tracking-[0.3em] uppercase font-semibold mb-3">What We Do</div>
-                <h2 className="font-display text-4xl md:text-5xl text-white tracking-tight">Built for Commercial.</h2>
+                <h2 className="font-display text-4xl md:text-5xl text-white tracking-tight">Every Surface. Every Scale.</h2>
               </div>
               <Link href="/services" className="text-yellow-400 text-sm tracking-wider uppercase font-semibold hover:text-yellow-300 transition-colors flex items-center gap-2">
                 All Services <ArrowRight size={14} />
@@ -91,10 +176,10 @@ export default function Home() {
             </div>
           </AnimateIn>
 
-          <div className="grid md:grid-cols-2 gap-px bg-white/5">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5">
             {SERVICES.map((s, i) => (
               <AnimateIn key={s.title} delay={i * 0.05}>
-                <Link href={s.href} className="group block bg-zinc-950 p-8 hover:bg-zinc-900 transition-colors h-full">
+                <Link href={s.href} className="group block bg-black p-8 hover:bg-zinc-900 transition-colors h-full">
                   <h3 className="font-display text-2xl text-white mb-3 group-hover:text-yellow-400 transition-colors">{s.title}</h3>
                   <p className="text-white/60 text-sm leading-relaxed mb-4">{s.desc}</p>
                   <span className="text-yellow-400/70 text-xs tracking-wider uppercase font-semibold group-hover:text-yellow-400 flex items-center gap-1">
@@ -102,6 +187,31 @@ export default function Home() {
                   </span>
                 </Link>
               </AnimateIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FINISHES MARQUEE ─────────────────────────────────────────── */}
+      <section className="bg-zinc-950 py-20 border-t border-white/5 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <AnimateIn>
+            <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
+              <div>
+                <div className="text-yellow-400 text-xs tracking-[0.3em] uppercase font-semibold mb-3">Color Change</div>
+                <h2 className="font-display text-4xl md:text-5xl text-white tracking-tight">Pick Your Finish.</h2>
+              </div>
+              <p className="text-white/40 text-sm max-w-xs">Gloss, matte, satin, and color-shift films from 3M, Avery Dennison, and KPMF.</p>
+            </div>
+          </AnimateIn>
+        </div>
+        <div className="relative">
+          <div className="flex animate-marquee gap-3 w-max">
+            {[...FINISHES, ...FINISHES].map(([name, bg], i) => (
+              <div key={`${name}-${i}`} className="w-44 shrink-0 border border-white/10 bg-black">
+                <div className="h-24" style={{ background: bg }} />
+                <div className="px-4 py-3 text-white text-xs font-semibold tracking-wider uppercase">{name}</div>
+              </div>
             ))}
           </div>
         </div>
@@ -131,6 +241,13 @@ export default function Home() {
               </AnimateIn>
             ))}
           </div>
+
+          <AnimateIn delay={0.2}>
+            <p className="text-white/25 text-xs mt-6 max-w-3xl leading-relaxed">
+              Printed graphics shown were produced by our clients and trusted print partners — 301 Graphics is the certified
+              installer. Every installation completed by the owner or established 3M-certified partners.
+            </p>
+          </AnimateIn>
         </div>
       </section>
 
@@ -208,6 +325,32 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── FAQ — quick answers ──────────────────────────────────────── */}
+      <section className="bg-zinc-950 py-24 border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6">
+          <AnimateIn>
+            <div className="mb-12">
+              <div className="text-yellow-400 text-xs tracking-[0.3em] uppercase font-semibold mb-3">FAQ</div>
+              <h2 className="font-display text-4xl md:text-5xl text-white tracking-tight">Straight Answers.</h2>
+            </div>
+          </AnimateIn>
+
+          <div className="grid md:grid-cols-2 gap-px bg-white/5">
+            {FAQ.map(([q, a], i) => (
+              <AnimateIn key={q} delay={i * 0.05}>
+                <div className="bg-zinc-950 p-8 h-full">
+                  <div className="flex items-start gap-3 mb-3">
+                    <Sparkles size={16} className="text-yellow-400 shrink-0 mt-1" />
+                    <h3 className="text-white font-semibold tracking-wide">{q}</h3>
+                  </div>
+                  <p className="text-white/60 text-sm leading-relaxed pl-7">{a}</p>
+                </div>
+              </AnimateIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── CTA — punchy, dual action ───────────────────────────────── */}
       <section className="bg-yellow-400 py-20">
         <div className="max-w-5xl mx-auto px-6 text-center">
@@ -216,7 +359,7 @@ export default function Home() {
               READY TO INSTALL?
             </h2>
             <p className="text-black/70 text-lg mb-10 max-w-xl mx-auto">
-              Send your project details and we'll quote it fast.
+              Fleet rebrand or dream color change — send the details and we&apos;ll quote it fast.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact" className="inline-flex items-center gap-2 bg-black text-yellow-400 px-8 py-4 text-sm font-bold tracking-[0.2em] uppercase hover:bg-zinc-900 transition-colors">
