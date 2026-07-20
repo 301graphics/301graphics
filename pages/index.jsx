@@ -18,7 +18,7 @@ const SERVICES = [
 const PORTFOLIO_PREVIEW = [
   'taco-bell-storefront-graphics.jpg',
   'daves-killer-bread-box-truck.jpg',
-  'bronco-custom-stripes.jpg',
+  'taco-bell-exterior-mural.jpg',
   'awp-safety-truck-decals.jpg',
   'amphitheater-wall-wrap.jpg',
   'assured-comfort-van-wrap.jpg',

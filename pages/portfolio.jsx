@@ -13,7 +13,6 @@ const PORTFOLIO = [
   // ── VEHICLES (anything that drives) ──
   { src: 'awp-safety-truck-decals.jpg',     cat: 'Vehicles' },
   { src: 'daves-killer-bread-box-truck.jpg', cat: 'Vehicles' },
-  { src: 'bronco-custom-stripes.jpg',       cat: 'Vehicles' },
   { src: 'assured-comfort-van-wrap.jpg',    cat: 'Vehicles' },
   { src: 'impact-fire-van-decals.jpg',      cat: 'Vehicles' },
   { src: 'room-and-board-trailer-decals.jpg', cat: 'Vehicles' },
