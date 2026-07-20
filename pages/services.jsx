@@ -6,6 +6,7 @@ import { ArrowRight, CheckCircle } from 'lucide-react'
 const services = [
   {
     number: '01',
+    id: 'fleet',
     title: 'Fleet Graphics',
     category: 'Fleet · High Volume',
     desc: 'Fleet branding is where we shine. We are 3M Fleet Certified and built specifically for high-volume commercial work — from 2 vehicles to 200+ trailers. Every unit in your fleet gets the same precision, the same quality, and the same professional finish. We work with print shops, logistics companies, and corporate brands across Atlanta, the Southeast, and nationwide.',
@@ -21,6 +22,7 @@ const services = [
   },
   {
     number: '02',
+    id: 'vehicle-wraps',
     title: 'Vehicle Wraps',
     category: 'Vehicles · Commercial',
     desc: 'A quality vehicle wrap starts with a quality install. We handle proper surface prep, heat application, edge sealing, and final inspection on every vehicle we touch. Cars, vans, box trucks, pickups, SUVs — if it drives, we wrap it. We work with 3M and Avery 1105 primarily, and are experienced with all major vinyl brands.',
@@ -36,6 +38,39 @@ const services = [
   },
   {
     number: '03',
+    id: 'color-change',
+    title: 'Color Change Wraps',
+    category: 'Enthusiast · Personal Vehicles',
+    desc: 'You\'ve pictured your car in that color long enough — we make it real. Full and partial color changes in gloss, matte, satin, and color-shift films, installed with the same 3M-certified precision that commercial brands trust. Panel edges wrapped, relief cuts where they belong, no bubbles, no lifted corners at the gas pump six months later. Daily drivers, weekend builds, and show cars all welcome.',
+    features: [
+      'Full and partial color change wraps',
+      'Gloss, matte, satin, and color-shift finishes',
+      'Chrome deletes and accent packages',
+      '3M 2080, Avery SW900, KPMF films',
+      'Real film samples to touch before you commit',
+      '5–7 year rated films with proper care',
+    ],
+    vinyl: '3M 2080 · Avery SW900 · KPMF · Specialty Films',
+  },
+  {
+    number: '04',
+    id: 'ppf-tint',
+    title: 'PPF, Tint & Ceramic',
+    category: 'Enthusiast · Protection',
+    desc: 'Protect the paint you paid for. Self-healing paint protection film guards against rock chips and road rash — front-end packages, track packs, or full-body coverage. Ceramic window tint keeps heat and UV out without the purple fade or bubbles. Ceramic coating adds long-term gloss and chemical protection over paint, vinyl, or PPF. Stack them however your build calls for it.',
+    features: [
+      'Self-healing paint protection film',
+      'Front-end, track pack, and full-body PPF',
+      'Ceramic window tint — automotive & commercial',
+      'Ceramic coating over paint, wrap, or PPF',
+      'Manufacturer-backed film warranties',
+      'Wrap-safe products on every install',
+    ],
+    vinyl: 'Premium PPF & Ceramic Films · All Major Brands',
+  },
+  {
+    number: '05',
+    id: 'wall-window',
     title: 'Storefront & Window Graphics',
     category: 'Commercial · Retail',
     desc: 'Your storefront is your brand\'s first impression — we make sure it lands. Window vinyl, perforated film, cut lettering, frosted film, and full exterior graphics installed clean, level, and built to last. We serve retail businesses, restaurants, salons, medical offices, and commercial properties throughout the Cobb County and Atlanta area.',
@@ -50,7 +85,8 @@ const services = [
     vinyl: '3M · Avery · Oracal',
   },
   {
-    number: '04',
+    number: '06',
+    id: 'wall-murals',
     title: 'Wall Murals & Interior Graphics',
     category: 'Interior · Large Format',
     desc: 'Large-format interior vinyl installs require patience, precision, and experience with substrates. We handle smooth drywall, textured walls, concrete, and more — delivering lobby murals, wayfinding graphics, office branding walls, and retail interior graphics that make spaces impossible to forget.',
@@ -65,7 +101,8 @@ const services = [
     vinyl: '3M · Avery · Specialty Interior Vinyls',
   },
   {
-    number: '05',
+    number: '07',
+    id: 'trade-show',
     title: 'Trade Show & Event Installs',
     category: 'Events · Trade Show',
     desc: 'Trade shows move on tight schedules and there\'s no room for error. We show up when we say we will, install efficiently, and hand off a polished result before your client ever sees the space. Booth wraps, backdrop graphics, floor graphics, hanging banners — we handle it all on-site with speed and precision.',
@@ -80,7 +117,8 @@ const services = [
     vinyl: '3M · Avery · Event-Specific Vinyls',
   },
   {
-    number: '06',
+    number: '08',
+    id: 'subcontract',
     title: 'Subcontract Install Partner',
     category: 'Print Shops · Agencies',
     desc: 'For print shops and marketing agencies, we are your invisible install arm. You handle the client relationship and production — we show up professional, install clean, document everything with photos, and deliver results that make your brand look exceptional. We work Southeast-wide and travel nationwide for the right volume of work.',
@@ -100,7 +138,7 @@ export default function Services() {
   return (
     <Layout
       title="Services | 301 Graphics — Commercial Vinyl Installation Atlanta, GA"
-      description="Commercial vinyl installation services in Atlanta and Cobb County, GA. Fleet graphics, vehicle wraps, storefront signage, wall murals, trade show installs, and subcontract work for print shops. 3M Fleet Certified. Free quotes."
+      description="Vinyl installation services in Atlanta and Cobb County, GA. Fleet graphics, vehicle wraps, color change wraps, PPF, window tint, storefront signage, wall murals, and trade show installs. 3M Preferred Installer. Free quotes."
     >
       {/* Hero */}
       <section className="pt-40 pb-24 px-6 bg-black">
@@ -112,9 +150,10 @@ export default function Services() {
               <span className="text-yellow-400">EVERY SCALE.</span>
             </h1>
             <p className="text-white/50 text-lg max-w-2xl leading-relaxed">
-              We specialize exclusively in vinyl installation — not printing, not design.
-              That singular focus means every service we offer is executed at the highest level.
-              3M Fleet Certified. Avery Trained. Licensed LLC. Fully insured.
+              We specialize in vinyl installation — commercial fleets, print shop partnerships,
+              and now full color changes, PPF, and tint for enthusiasts. One standard of
+              precision across all of it. 3M Preferred Installer. Fleet Certified. Avery Trained.
+              Licensed LLC. Fully insured.
             </p>
           </AnimateIn>
 
@@ -136,7 +175,7 @@ export default function Services() {
         <div className="max-w-7xl mx-auto space-y-px">
           {services.map((svc, i) => (
             <AnimateIn key={svc.number} delay={i * 0.06}>
-              <div className="group bg-zinc-950 hover:bg-zinc-900 transition-colors duration-300 p-10 md:p-16">
+              <div id={svc.id} className="group bg-zinc-950 hover:bg-zinc-900 transition-colors duration-300 p-10 md:p-16 scroll-mt-32">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
                   <div className="md:col-span-1">
                     <div className="font-display text-5xl text-white/8 group-hover:text-yellow-400/25 transition-colors">
