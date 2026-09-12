@@ -1,36 +1,24 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+  content: ['./pages/**/*.{js,jsx}', './components/**/*.{js,jsx}'],
   theme: {
     extend: {
       colors: {
-        yellow: {
-          400: '#FFD000',
-          500: '#F5C800',
-          600: '#E0B800',
-        },
+        carbon: '#0B0A09',
+        graphite: '#141210',
+        smoke: '#1E1B18',
+        ivory: '#F2ECE0',
+        ash: '#8F877A',
+        champagne: { DEFAULT: '#D4B47E', light: '#EDDCB8', deep: '#A8865A' },
+        brand: '#FFD000',
       },
       fontFamily: {
-        display: ['var(--font-display)', 'sans-serif'],
-        body: ['var(--font-body)', 'sans-serif'],
+        display: ['var(--font-display)', 'Georgia', 'serif'],
+        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
       },
-      animation: {
-        'marquee': 'marquee 25s linear infinite',
-        'fade-up': 'fadeUp 0.6s ease forwards',
-      },
-      keyframes: {
-        marquee: {
-          '0%': { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(-50%)' },
-        },
-        fadeUp: {
-          from: { opacity: '0', transform: 'translateY(30px)' },
-          to: { opacity: '1', transform: 'translateY(0)' },
-        },
-      },
+      letterSpacing: { eyebrow: '0.22em' },
+      maxWidth: { shell: '1440px' },
+      transitionTimingFunction: { lux: 'cubic-bezier(0.22, 1, 0.36, 1)' },
     },
   },
   plugins: [],
