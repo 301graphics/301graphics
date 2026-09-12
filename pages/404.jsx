@@ -1,22 +1,21 @@
-import Layout from '../components/Layout'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import Layout from '../components/Layout'
 
 export default function NotFound() {
   return (
-    <Layout title="404 — Not Found">
-      <div className="min-h-screen flex items-center justify-center px-6 bg-black">
-        <div className="text-center">
-          <div className="font-display text-[20rem] text-white/5 leading-none select-none">404</div>
-          <div className="-mt-20">
-            <h1 className="font-display text-5xl text-white tracking-wider mb-4">PAGE NOT FOUND</h1>
-            <p className="text-white/50 mb-8">Looks like this page got wrapped over.</p>
-            <Link href="/" className="btn-primary">
-              Back to Home <ArrowRight size={16} />
-            </Link>
+    <Layout title="Page not found | 301 Graphics" noindex>
+      <section className="shell min-h-[70vh] flex items-center pt-32">
+        <div>
+          <p className="eyebrow mb-6">404</p>
+          <h1 className="display h1 max-w-[12ch]">That panel <em>isn't here.</em></h1>
+          <p className="lede mt-7">The page moved or never existed. The work, the services and the quote form are all one click away.</p>
+          <div className="mt-10 flex flex-wrap gap-4">
+            <Link href="/" className="btn btn-solid">Home <ArrowRight size={15} /></Link>
+            <Link href="/work" className="btn btn-ghost">See the work</Link>
           </div>
         </div>
-      </div>
+      </section>
     </Layout>
   )
 }
