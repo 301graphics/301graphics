@@ -19,7 +19,7 @@ Add these, then redeploy (Deployments → ⋯ → Redeploy). Everything works wi
 
 | Variable | Value | Turns on |
 |---|---|---|
-| `RESEND_API_KEY` | from resend.com (below) | Quote form emails land in your Gmail with photos attached |
+| `RESEND_API_KEY` | from resend.com (below), optional | Upgrades the quote form so photos arrive as attachments. Without it the form delivers through your Formspree form "quote request" (text only, 50/month on the free plan) |
 | `QUOTE_TO_EMAIL` | `301graphic@gmail.com` | Where quote requests go |
 | `QUOTE_FROM_EMAIL` | `301 Graphics Website <onboarding@resend.dev>` | Sender (switch to `quotes@301graphics.com` after domain verification) |
 | `NEXT_PUBLIC_CALENDLY_URL` | your Calendly event link | "Book a call / site survey" panel on the quote page |
@@ -27,11 +27,11 @@ Add these, then redeploy (Deployments → ⋯ → Redeploy). Everything works wi
 | `NEXT_PUBLIC_GOOGLE_WRITE_REVIEW_URL` | your GBP "write a review" link | "Leave a review" button next to the reviews |
 | `NEXT_PUBLIC_INSTAGRAM_FEED_ID` | Behold feed ID | Live @301graphics_ feed instead of the built-in gallery |
 
-Until `RESEND_API_KEY` is set, the form still works: it opens the visitor's email app with everything pre-filled so nothing is lost.
+Without `RESEND_API_KEY` the form delivers through Formspree (form ID `xgodaplq`, set in `data/site.js`). Photos can't ride along on the free Formspree plan, so the thank-you screen asks the customer to text them to you.
 
 ## 3. One-time account setups
 
-**Resend (quote form email, free)**
+**Resend (optional upgrade: photo attachments, free)**
 1. Sign up at resend.com with 301graphic@gmail.com.
 2. API Keys → Create → copy it into `RESEND_API_KEY` on Vercel.
 3. Optional, later: Domains → add 301graphics.com, add the DNS records they show at GoDaddy, then set `QUOTE_FROM_EMAIL` to `301 Graphics <quotes@301graphics.com>`. Until then the free `onboarding@resend.dev` sender delivers only to your own Gmail, which is exactly what we need.
