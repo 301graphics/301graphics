@@ -20,6 +20,8 @@ export const site = {
   writeReviewUrl: process.env.NEXT_PUBLIC_GOOGLE_WRITE_REVIEW_URL || '',
   calendlyUrl: process.env.NEXT_PUBLIC_CALENDLY_URL || '',
   gaId: process.env.NEXT_PUBLIC_GA_ID || '',
+  // Formspree form "quote request" on Tony's account. Used when no RESEND_API_KEY is set. Free plan = no file attachments.
+  formspreeId: 'xgodaplq',
 }
 
 export const nav = [
