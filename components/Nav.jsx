@@ -24,8 +24,9 @@ export default function Nav() {
   }, [open])
 
   return (
+    <>
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-lux ${scrolled || open ? 'bg-carbon/85 backdrop-blur-md border-b border-white/5' : 'bg-transparent'}`}
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-lux ${open ? 'bg-carbon border-b border-white/10' : scrolled ? 'bg-carbon/85 backdrop-blur-md border-b border-white/5' : 'bg-transparent'}`}
     >
       <div className="shell flex items-center justify-between h-[76px] md:h-[88px]">
         <Link href="/" aria-label="301 Graphics home" className="flex items-center">
@@ -57,23 +58,25 @@ export default function Nav() {
         </button>
       </div>
 
-      {/* Mobile menu */}
-      <div className={`lg:hidden fixed inset-x-0 top-[76px] bottom-0 bg-carbon transition-opacity duration-400 ${open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
-        <div className="shell flex flex-col h-full py-8">
-          <nav className="flex flex-col" aria-label="Mobile">
-            {nav.map((item, i) => (
-              <Link key={item.href} href={item.href} className="display h3 py-4 border-b border-white/5 text-ivory hover:text-champagne-light transition-colors">
-                {item.label}
-              </Link>
-            ))}
-            <Link href="/quote" className="display h3 py-4 border-b border-white/5 text-champagne">Get a quote</Link>
-          </nav>
-          <div className="mt-auto pt-8 flex flex-col gap-4">
-            <a href={site.phoneHref} onClick={() => track('call_click', { location: 'mobile_menu' })} className="btn btn-ghost justify-center"><Phone size={16} /> {site.phone}</a>
-            <p className="mute text-xs tracking-wide">{site.city}, {site.region}. Mobile across the Southeast.</p>
-          </div>
+    </header>
+
+    {/* Mobile menu: rendered outside the header because backdrop-filter would trap a fixed child inside it */}
+    <div className={`lg:hidden fixed inset-0 z-40 bg-carbon pt-[76px] transition-opacity duration-300 ${open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} aria-hidden={!open}>
+      <div className="shell flex flex-col h-full py-8 overflow-y-auto">
+        <nav className="flex flex-col" aria-label="Mobile">
+          {nav.map(item => (
+            <Link key={item.href} href={item.href} className="display h3 py-4 border-b border-white/10 text-ivory hover:text-champagne-light transition-colors">
+              {item.label}
+            </Link>
+          ))}
+          <Link href="/quote" className="display h3 py-4 border-b border-white/10 text-champagne">Get a quote</Link>
+        </nav>
+        <div className="mt-auto pt-8 flex flex-col gap-4">
+          <a href={site.phoneHref} onClick={() => track('call_click', { location: 'mobile_menu' })} className="btn btn-ghost justify-center"><Phone size={16} /> {site.phone}</a>
+          <p className="mute text-xs tracking-wide">{site.city}, {site.region}. Mobile across the Southeast.</p>
         </div>
       </div>
-    </header>
+    </div>
+    </>
   )
 }

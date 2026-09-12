@@ -43,6 +43,7 @@ export default function QuoteForm() {
   const [form, setForm] = useState({ service: '', name: '', company: '', email: '', phone: '', subject: '', units: '', timeline: TIMELINES[0], details: '', referral: '', website: '' })
   const [files, setFiles] = useState([])
   const [status, setStatus] = useState('idle') // idle | sending | sent | error | fallback
+  const [dropped, setDropped] = useState(0) // photos that could not be delivered with the request
   const [msg, setMsg] = useState('')
   const [drag, setDrag] = useState(false)
   const fileRef = useRef(null)
@@ -80,7 +81,7 @@ export default function QuoteForm() {
       const payload = { ...form, type, service: serviceValid ? options.find(o => o.value === form.service).label : form.service, files: await Promise.all(files.map(async f => ({ name: f.name, data: await toBase64(f) }))) }
       const res = await fetch('/api/quote', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
       const data = await res.json().catch(() => ({}))
-      if (res.ok && data.ok) { setStatus('sent'); track('quote_submit', { type, service: payload.service, files: files.length }); return }
+      if (res.ok && data.ok) { setDropped(data.filesDropped || 0); setStatus('sent'); track('quote_submit', { type, service: payload.service, files: files.length, via: data.via }); return }
       if (res.status === 503 && data.error === 'not_configured') { setStatus('fallback'); return }
       throw new Error(data.error || 'send_failed')
     } catch (err) {
@@ -97,6 +98,15 @@ export default function QuoteForm() {
         <Check className="text-champagne" size={28} />
         <h2 className="display h2 mt-6">Got it.</h2>
         <p className="lede mt-5">You will hear back with a number, usually today. If it is urgent, call or text.</p>
+        {dropped > 0 && (
+          <div className="mt-6 border border-champagne/30 p-5">
+            <p className="text-ivory">One more thing: your {dropped === 1 ? 'photo' : `${dropped} photos`} did not come through with the form. Text {dropped === 1 ? 'it' : 'them'} to {site.phone} with your name and we will match {dropped === 1 ? 'it' : 'them'} to your request.</p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <a href={`${site.smsHref}?&body=${encodeURIComponent(`Photos for my quote request - ${form.name}`)}`} onClick={() => track('sms_click', { location: 'quote_success' })} className="btn btn-solid !py-3 !px-5">Text the photos</a>
+              <a href={`mailto:${site.email}?subject=${encodeURIComponent('Photos for my quote request - ' + form.name)}`} className="btn btn-ghost !py-3 !px-5">Email them instead</a>
+            </div>
+          </div>
+        )}
         <div className="mt-8 flex flex-wrap gap-4">
           <a href={site.phoneHref} onClick={() => track('call_click', { location: 'quote_success' })} className="btn btn-solid"><Phone size={15} /> {site.phone}</a>
           {site.calendlyUrl && <a href={site.calendlyUrl} target="_blank" rel="noreferrer" className="btn btn-ghost">Book a call</a>}
